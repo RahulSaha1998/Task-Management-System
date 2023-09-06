@@ -50,10 +50,6 @@ const Login = () => {
     }
 
 
-
-
-
-
     return (
         <div className='grid md:grid-cols-2 mx-auto'>
             <Helmet>

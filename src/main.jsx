@@ -10,6 +10,7 @@ import Main from './Layouts/Main';
 import AuthProvider from './providers/AuthProvider';
 import Login from './components/Login/Login';
 import { HelmetProvider } from 'react-helmet-async';
+import Register from './components/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
       },
     ]
   },
