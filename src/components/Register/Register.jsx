@@ -27,9 +27,22 @@ const Register = () => {
         const name = form.name.value;
         const photoURL = form.photo.value;
         const email = form.email.value;
+        const bio = form.bio.value;
         const password = form.password.value;
-        console.log(name, role, email, password, photoURL );
-        const saveUser = {name: name, email: email, role: role};
+        const userData = { name, email, bio, photoURL };
+        console.log(userData);
+
+        const existingUserDataJSON = localStorage.getItem('userData');
+        const existingUserData = existingUserDataJSON ? JSON.parse(existingUserDataJSON) : [];
+
+        // Create a new user object
+        const newUser = { name, email, bio, password, photoURL };
+
+        // Append the new user to the existing user data
+        const updatedUserData = [...existingUserData, newUser];
+
+        // Store the updated user data in local storage
+        localStorage.setItem('userData', JSON.stringify(updatedUserData));
 
         if (password.length < 6) {
             return setError('Password must be greater than 6 characters');
@@ -42,13 +55,13 @@ const Register = () => {
                 logOut()
                 console.log(loggedUser);
                 form.reset();
-            //     fetch('https://project-task-server.vercel.app/users', {
-            //     method: 'POST',
-            //     headers: {
-            //         'content-type': 'application/json'
-            //     },
-            //     body: JSON.stringify(saveUser)
-            // });
+                //     fetch('https://project-task-server.vercel.app/users', {
+                //     method: 'POST',
+                //     headers: {
+                //         'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(saveUser)
+                // });
 
 
                 setError('')
@@ -58,8 +71,8 @@ const Register = () => {
                     title: 'Registration Successful!',
                     showConfirmButton: false,
                     timer: 1500
-                  })
-                  navigate('/login')
+                })
+                navigate('/login')
 
             })
             .catch(error => {
@@ -108,6 +121,15 @@ const Register = () => {
                                 </label>
                                 <input type="text" placeholder="email"
                                     name='email'
+                                    className="input input-bordered"
+                                    required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Bio</span>
+                                </label>
+                                <input type="text" placeholder="bio"
+                                    name='bio'
                                     className="input input-bordered"
                                     required />
                             </div>

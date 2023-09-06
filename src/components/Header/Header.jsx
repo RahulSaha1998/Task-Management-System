@@ -1,21 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
-// import useAdmin from '../../hooks/useAdmin';
-// import DarkMode from '../DarkMode/DarkMode';
-// import './Header.css'
-
 
 
 const Header = () => {
 
     const { user, logOut, setLoading } = useContext(AuthContext);
-    // const [isAdmin] = useAdmin();
+
 
 
     const handleLogOut = () => {
         logOut()
-            .then(() => setLoading(false))
+            .then(() => {
+                setLoading(false)
+            })
             .catch(error => {
                 console.log(error)
             })
@@ -25,6 +23,10 @@ const Header = () => {
     const navItems = <>
 
         <li> <Link className='font-semibold' to="/">Home</Link> </li>
+        {
+            user &&
+            <li> <Link className='font-semibold' to="/profile">Profile</Link> </li>
+        }
         <li> <Link className='font-semibold' to="/allTask">All Task</Link> </li>
         {/* {
             isAdmin ? <>
@@ -67,9 +69,6 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-2">
-                <div>
-                    {/* <DarkMode/> */}
-                </div>
                 <div className=' flex items-center gap-4'>
                     {
                         user?.email ? <>
