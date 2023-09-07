@@ -25,7 +25,10 @@ const Header = () => {
         <li> <Link className='font-semibold' to="/">Home</Link> </li>
         {
             user &&
-            <li> <Link className='font-semibold' to="/profile">Profile</Link> </li>
+            <>
+                <li> <Link className='font-semibold' to="/profile">Profile</Link> </li>
+                <li> <Link className='font-semibold' to="/dashboard">Dashboard</Link> </li>               
+            </>
         }
         <li> <Link className='font-semibold' to="/allTask">All Task</Link> </li>
         {/* {
