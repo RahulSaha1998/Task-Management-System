@@ -30,18 +30,28 @@ const AddTask = () => {
             const date = form.date.value;
             const priorityLevel = form.priorityLevel.value;
             const desc = form.desc.value;
-            const name = user?.displayName;
 
-            const task = {
+            const newTask = {
                 title: title,
                 assignTask,
                 date,
                 priorityLevel,
-                description: desc
+                description: desc,
+                status: 'progress'
             };
-            console.log(task);
+            console.log(newTask);
 
             try {
+
+                const existingTaskJSON = localStorage.getItem('taskData');
+                const existingTask = existingTaskJSON ? JSON.parse(existingTaskJSON) : [];
+
+                // Append the new user to the existing user data
+                const updatedTask = [...existingTask, newTask];
+
+                // Store the updated user data in local storage
+                localStorage.setItem('taskData', JSON.stringify(updatedTask));
+
                 Swal.fire({
                     icon: 'success',
                     title: 'Successfully added to Tasks!',
