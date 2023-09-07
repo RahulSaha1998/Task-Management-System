@@ -103,15 +103,17 @@ const AddTask = () => {
                                 </label>
 
                                 <select name="assignTask" className="input input-info">
-                                    {state.map((item, index) => (
-                                        <option
-                                            key={index}
-                                            value={item?.name}
-                                        >
-                                            {item?.name}
-                                        </option>
-                                    ))}
+                                    {state?.length > 0 ? (
+                                        state.map((item, index) => (
+                                            <option key={index} value={item?.name}>
+                                                {item?.name}
+                                            </option>
+                                        ))
+                                    ) : (
+                                        <option value="Peter">Peter</option>
+                                    )}
                                 </select>
+
                             </div>
                             <div className="form-control">
                                 <label className="label">

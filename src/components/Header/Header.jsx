@@ -8,8 +8,6 @@ const Header = () => {
 
     const { user, logOut, setLoading } = useContext(AuthContext);
 
-
-
     const handleLogOut = () => {
         logOut()
             .then(() => {

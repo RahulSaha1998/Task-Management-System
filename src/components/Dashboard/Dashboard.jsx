@@ -114,7 +114,7 @@ const Dashboard = () => {
                             {/* Table Contents */}
 
                             {
-                                filteredTasks.map((task, index) =>
+                                filteredTasks?.map((task, index) =>
                                     <tr
                                         key={task._id}
                                         index={index}

@@ -15,7 +15,7 @@ const UserProfile = () => {
     console.log(storedUserData);
 
     // Check if the user is logged in and if the emails match
-    const matchingUser = user && storedUserData.find(item => item?.email === user?.email);
+    const matchingUser = user && storedUserData?.find(item => item?.email === user?.email);
     console.log(matchingUser);
 
 
