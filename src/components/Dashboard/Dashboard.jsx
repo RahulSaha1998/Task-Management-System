@@ -17,24 +17,10 @@ const Dashboard = () => {
         return <Loader></Loader>
     }
 
-
-
     // const [tasks, setTasks] = useState(loadedTask);
     const [sortBy, setSortBy] = useState('asc');
     const [filteredTasks, setFilteredTasks] = useState([]);
 
-
-
-
-    // const storedTaskJSON = localStorage.getItem('userTask');
-    // const storedTask = storedTaskJSON ? JSON.parse(storedTaskJSON) : null;
-    // setFilteredTasks(storedTask);
-
-    // // Check if the user is logged in and if the emails match
-    // const matchingUser = user && storedTask.map(item => {
-    //     console.log(item);
-    // });
-    // console.log(matchingUser);
 
 
     // Retrieve the user data from local storage

@@ -30,16 +30,7 @@ const Header = () => {
                 <li> <Link className='font-semibold' to="/dashboard">Dashboard</Link> </li>               
             </>
         }
-        <li> <Link className='font-semibold' to="/allTask">All Task</Link> </li>
-        {/* {
-            isAdmin ? <>
-                <li> <Link className='font-semibold' to="/dashboard">Admin Dashboard</Link> </li>
-            </>
-                :
-                <>
-                    <li> <Link className='font-semibold' to="/allTask">All Task</Link> </li>
-                </>
-        } */}
+        
     </>
 
     const btn = <>
